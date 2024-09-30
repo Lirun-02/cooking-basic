@@ -1,0 +1,203 @@
+@charset "UTF-8"
+
+/*ページ全体の設定*/
+;body {
+    margin: 0;
+    font-family: Zen Kurenaido;
+    background-color: #f3f3f3; /*背景色*/
+}
+
+/*ヘッダー*/
+header{
+    padding: 0;
+    height: 60px;
+    background-color: #02111B;
+    font-weight: bold;
+}
+
+header h1{
+    color: #f3f3f3;
+    font-size: 30px;
+    margin-top: 7px;
+    text-align: center;
+}
+
+/*リンク*/
+a{
+    text-decoration: none;
+    color: inherit; /*リンクの色ではなく、もともとの色を継承*/
+    font-size: 30px;
+}
+
+.container a:hover { /*マウスカーソルがホバーした時の処理*/
+    background-color: #C5FFD9;
+}
+
+nav li:not(:last-child) {
+    /*メニューの項目（最後以外）右側に空白を入れる*/
+    margin-right: 80px;
+}
+
+/*トップページ：　メインビジュアル*/
+.main {
+    background-size: cover; /*背景領域全体を覆う最小サイズに設定*/
+    background-position: center; /*背景画像の表示位置*/
+    height: 50rem;
+    color: #02111B;
+    padding: 15px;
+    box-sizing: border-box; /*ボックスサイズの算出方法*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;/*縦に並べる*/
+    position: relative;
+    overflow: hidden;
+}
+
+.main img{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+span {
+    color: #DD0426;
+}
+
+.filter{
+    width: 100%;
+    height: 532px;
+    background-color: rgba(0,0,0,0.4);
+    position: absolute;
+}
+
+.main h1{
+    font-size: 64px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+
+.main a{
+    font-size: 32px;
+    position: relative;
+}
+
+/*フッター*/
+footer{
+    padding-top: 50px;
+    font-size: 24px;
+    height: 100px;
+    background-color: #02111B;
+    color: #f3f3f3;
+    text-align: center;
+}
+
+/* ==== PC版の設定 ==== */
+@media (min-width: 801px) {
+    .menu{ display: none !important;}
+    .pc{ display: block !important;}
+    .sp{ display: none !important;}
+
+    /* PC版:コンテナ */
+    .container {
+        max-width: 80%;
+        margin: auto;
+    }
+
+    /* PC版：「ヘッダー」ブロック内のコンテナ*/
+    header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; /* 縦方向の中央ぞろえ */
+    }
+
+    span{
+        font-size: 36px;
+    }
+
+}
+/* ===== PC版の設定ここまで ===== */
+
+/* ===== スマホ版の設定 ===== */
+@media (max-width: 800px){
+    .menu { display: block !important;}
+    .pc{ display: none !important;}
+    .sp{ display:block !important;}
+    .main a{ display: none !important;}
+
+    header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; /* 縦方向の中央ぞろえ */
+    }
+
+    header{
+        background-color:#fff4e8;
+        border-bottom: 2px solid #02111B;
+    }
+
+    header h1{
+        margin-left: 10px;
+        color: #02111B;
+        font-size: 30px;
+    }
+
+    .main{
+        height: 600px;
+    }
+
+    .main h1{
+        font-size: 20px;
+        width: 100%;
+        position: relative;
+        text-align: center;
+    }
+
+    footer {
+        display: none;
+    }
+
+    /* ===== 下部メニュー設定 ===== */
+    .menu {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        z-index:999;
+    }
+
+    .menu h3 {
+        font-size: 20px;
+        text-align: center;
+        background: #C5FFD9;
+    }
+
+    .bmenu {
+        display:flex;
+        margin: auto;
+    }
+
+    .bmenu a:hover {
+        background: #c5c5c5;;
+    }
+
+    .boxmenu {
+        padding: 1%;
+        display: flex;
+        flex-flow:column;
+        font-size: 10px;
+        align-items: center;
+        background: #C5FFD9;
+        border-left: 1px solid #02111b;
+        border-right: 1px solid #02111b;
+        border-top: 1px solid #02111b;
+    }
+
+    .boxmenu img{
+        width:60%;
+    }
+    /* ===== 下部メニュー設定ここまで ===== */
+
+}

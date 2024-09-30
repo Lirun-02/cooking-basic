@@ -1,0 +1,392 @@
+@charset "UTF-8"
+
+/*ページ全体の設定*/
+;body {
+    margin: 0;
+    font-family: Zen Kurenaido;
+    background-color: #FFF4E8; /*背景色*/
+}
+
+/*ヘッダー*/
+header{
+    padding: 0;
+    height: 60px;
+    background-color: #02111B;
+    font-weight: bold;
+}
+
+header h1{
+    color: #f3f3f3;
+    font-size: 30px;
+    margin-top: 7px;
+    text-align: center;
+}
+
+/*リンク*/
+a{
+    text-decoration: none;
+    color: inherit; /*リンクの色ではなく、もともとの色を継承*/
+    font-size: 30px;
+    transition: .5s;
+}
+
+.container a:hover { /*マウスカーソルがホバーした時の処理*/
+    background-color: #C5FFD9;
+}
+
+/*ナビゲーション*/
+nav ul {
+    margin-top: 7px;
+    list-style-type: none;
+    padding: 0;
+    color: #f3f3f3;
+    display: flex;
+    justify-content: center;
+}
+
+nav li:not(:last-child) {
+    /*メニューの項目（最後以外）右側に空白を入れる*/
+    margin-right: 80px;
+}
+
+/*トップページ：　メインビジュアル*/
+.main {
+    background-size: cover; /*背景領域全体を覆う最小サイズに設定*/
+    background-position: center; /*背景画像の表示位置*/
+    height: 532px;
+    color: #02111B;
+    padding: 15px;
+    box-sizing: border-box; /*ボックスサイズの算出方法*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;/*縦に並べる*/
+    position: relative;
+    overflow: hidden;
+}
+
+.main img{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 532px;
+    animation-name:fadein;
+    animation-duration:1s;
+    animation-fill-mode:forwards;
+    opacity: 0;
+    object-fit: cover;
+}
+
+@keyframes fadein{
+    from {
+        opacity: 0;
+    }
+    
+    to {
+        opacity: 1;
+    }
+}
+    
+hr{
+    border: none;
+    border-top: 2px dotted #02111B;
+    width: 65%;
+}
+
+.filter{
+    width: 100%;
+    height: 532px;
+    background-color: rgba(0,0,0,0.4);
+    position: absolute;
+}
+
+.main h1{
+    font-size: 96px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+
+.main p{
+    font-size: 32px;
+    margin-top: -80px;
+    position: relative;
+}
+
+.main span{
+    color: #DD0426;
+}
+
+article p{
+    margin: auto;
+    width: 100%;
+    text-align: center; /*テキスト中央寄せ*/
+    color: #02111B;
+    font-size: 20px;
+}
+
+article h3 {
+    margin-top: 120px;
+    font-size: 32px;
+    color: #02111B;
+    text-align: center;
+}
+
+span{
+    color: #DD0426;
+}
+
+.center {
+    text-align:center;
+}
+
+.sikaku {
+    display: inline-block;
+    padding: 30px;
+    margin: 50px;
+    background: #C5FFD9;     /* 背景色指定 */
+    border-radius: 20px;        /* 角丸指定 */
+}
+
+/*Pick Up*/
+.gallery {
+    max-width: 100%;
+    height: auto;
+    margin-top: 30px;
+    gap: 40px; /*間隔を20pxあける*/
+    display: flex; 
+    justify-content: center;
+    text-align: center;
+}
+
+.gallery img{
+    width: 300px;
+    height: 220px;
+    border-radius: 20px 20px 0 0;
+}
+
+.news p{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width:43%;
+    font-size: 24px;
+    text-align: left;
+}
+
+/*フッター*/
+footer{
+    margin-top: 100px;
+    padding-top: 50px;
+    font-size: 24px;
+    height: 100px;
+    background-color: #02111B;
+    color: #f3f3f3;
+    text-align: center;
+}
+
+/* お問い合わせフォーム */
+input, textarea {
+    width: 70%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+textarea {
+    vertical-align: top;
+    height: 400px;
+    border-radius: 10px;
+}
+
+input[type="text"] {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.position{
+    margin-top:30px;
+    text-align: center;
+}
+
+.position a{
+    display: inline-block;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 16pt;
+    text-align: center;
+    background: #c7c7c7;     /* 背景色 */
+    color: #02111B;     /* 文字色 */
+    transition: .3s;         /* なめらか変化 */
+    border: 2px solid #c7c7c7;    /* 枠の指定 */
+    border-radius: 50px;
+}
+
+.position a:hover{
+    color         : #02111B;
+    background    : #f3f3f3;
+}
+
+/* ==== PC版の設定 ==== */
+@media (min-width: 801px) {
+    .menu{ display: none !important;}
+    .pc{ display: block !important;}
+    .sp{ display: none !important;}
+
+    /* PC版:コンテナ */
+    .container {
+        max-width: 80%;
+        margin: auto;
+    }
+
+    /* PC版：「ヘッダー」ブロック内のコンテナ*/
+    header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; /* 縦方向の中央ぞろえ */
+    }
+
+    span{
+        font-size: 36px;
+    }
+
+    nav ul {
+        font-size: 14px;
+    }
+
+    p {
+        max-width: 1280px;
+    }
+
+    hr{
+        width:50%;
+    }
+
+    /* PC版：メインビジュアル */
+    .main h2 {
+        font-size: 40px;
+    }
+
+    .pic{
+        width: 300px;
+        height: 300px;
+        padding: 0px 0px 50px 0px;
+        margin: 0;
+        background: #C5FFD9;     /* 背景色指定 */
+        border-radius: 20px;        /* 角丸指定 */
+    }
+
+    .pic a{
+        font-size: 32px;
+    }
+
+}
+/* ===== PC版の設定ここまで ===== */
+
+/* ===== スマホ版の設定 ===== */
+@media (max-width: 800px){
+    .menu { display: block !important;}
+    .pc{ display: none !important;}
+    .sp{ display:block !important;}
+    
+    header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; /* 縦方向の中央ぞろえ */
+    }
+
+    header{
+        background-color:#fff4e8;
+        border-bottom: 2px solid #02111B;
+    }
+
+    header h1{
+        margin-left: 10px;
+        color: #02111B;
+        font-size: 30px;
+    }
+
+    article h3{
+        font-size: 18px;
+        margin-top: 60px;
+    }
+
+    article p{
+        margin: auto;
+        width: 100%;
+        text-align: center; /*テキスト中央寄せ*/
+        color: #02111B;
+        font-size: 15px;
+    }
+
+    .sikaku {
+        margin: 7px;
+    }
+    
+    .news p{
+        font-size: 13px;
+    }
+
+    textarea {
+        vertical-align: top;
+        height: 200px;
+        border-radius: 10px;
+    }
+
+    .position a{
+        padding: 5px;
+        font-size: 16px;
+        border-radius: 20%;
+    }
+
+    footer {
+        margin-top: 100px;
+        padding-top: 25px;
+        font-size: 14px;
+        height: 50px;
+        background-color: #02111B;
+        color: #f3f3f3;
+        text-align: center;
+    }
+
+    /* ===== 下部メニュー設定 ===== */
+    .menu {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        z-index:999;
+    }
+
+    .menu h3 {
+        font-size: 20px;
+        text-align: center;
+        background: #C5FFD9;
+    }
+
+    .bmenu {
+        display:flex;
+        margin: auto;
+    }
+
+    .bmenu a:hover {
+        background: #c5c5c5;;
+    }
+
+    .boxmenu {
+        padding: 1%;
+        display: flex; /*横並び*/
+        flex-flow:column; /*縦方向揃え*/
+        font-size: 10px;
+        align-items: center;
+        background: #C5FFD9;
+        border-left: 1px solid #02111b;
+        border-right: 1px solid #02111b;
+        border-top: 1px solid #02111b;
+    }
+
+    .boxmenu img{
+        width:60%;
+    }
+    /* ===== 下部メニュー設定ここまで ===== */
+
+}
